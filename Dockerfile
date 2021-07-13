@@ -20,11 +20,6 @@ RUN apt-get install -y jq curl zip
 COPY ./my.cnf /etc/mysql/conf.d/milken.cnf
 COPY ./entrypoint/* /docker-entrypoint-initdb.d/
 RUN chmod +x /docker-entrypoint-initdb.d/*
-RUN mkdir /home/mysql
-RUN chmod -R 700 /home/mysql
-RUN chown mysql:mysql /home/mysql
-RUN chown -R mysql:mysql /var/lib/mysql
-RUN chmod -R 700 /var/lib/mysql
 
 USER mysql
 
