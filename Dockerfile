@@ -14,8 +14,8 @@ RUN apt-get update && \
 # executed during container startup
 
 WORKDIR /tmp
-RUN apt-get update -y
-RUN apt-get install -y jq curl zip
+RUN apt-get update -y \
+    && apt-get install -y jq curl zip
 
 COPY ./my.cnf /etc/mysql/conf.d/milken.cnf
 COPY ./entrypoint/* /docker-entrypoint-initdb.d/
